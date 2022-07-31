@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+  }
+body {
+    height: 100vh;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    /* background-color: #383882;    */
+
+    /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+    /* background: linear-gradient(45deg, #FC466B, #3F5EFB);*/
+    /* background-position: 100% 100%; */
+    /* animation: gradient 1s ease infinite; */
+    
+    background: linear-gradient(90deg, #3f59f5, #fc466b);
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+.custom-control-input:checked~.custom-control-label::before {
+
+    border-color: #e73c7e;
+    background-color: #e73c7e;
+    box-shadow: none;
+}
+.form-control{
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
+    
+}
+.form-control:focus{    
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 4px 4px 20px 2px rgb(0 0 0 / 10%);
+    color: white;
+}
+
+#score{
+    font-size: 2.5rem;
+}
+
+.cart>button{
+    position: absolute;
+    top: 35px;
+    left: 1250px;
+    font-size: 36px;
+}
+
+.card-body{
+    color: black;
+}
+
+#thanhtoan{
+    position: relative;
+    left: 850px;
+}
+.modal-header>h5{
+    color: black;
+}

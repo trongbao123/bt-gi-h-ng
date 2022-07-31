@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>admin</title>
+
+   <!-- BS4 -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+
+   <!-- font awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+   <div class="container">
+      <!-- Just an image -->
+      <nav class="navbar navbar-light bg-light">
+         <a class="navbar-brand" href="#">
+            <img src="../../assets/img/images.png" width="60" height="60" alt="" />
+         </a>
+      </nav>
+   </div>
+   <div class="container">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+         <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+               aria-selected="true">Danh sách sản phẩm</a>
+         </li>
+         <li class="nav-item" role="presentation">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+               aria-selected="false">Danh sách người dùng</a>
+         </li>
+         <li class="nav-item" role="presentation">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+               aria-selected="false">Doanh số</a>
+         </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="taskBar d-flex justify-content-between mt-4 mb-4">
+               <!-- Button trigger modal -->
+               <button onclick="resetForm()" type="button" class="btn btn-primary" data-toggle="modal"
+                  data-target="#exampleModal">
+                  thêm mới
+               </button>
+
+               <!-- Modal -->
+               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h5 class="modal-title" id="exampleModalLabel">
+                              THÊM SẢN PHẨM MỚI
+                           </h5>
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                        <div class="modal-body">
+                           <form id="formProduct">
+                              <div class="d-flex justify-content-between">
+                                 <div class="form-group w-25">
+                                    <label for="id">ID sản phẩm</label>
+                                    <input disabled type="text" class="form-control" id="id"
+                                       placeholder="ID sản phẩm" />
+                                 </div>
+                                 <div class="form-group w-75 ml-4">
+                                    <label for="name">Tên sản phẩm</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Tên sản phẩm" />
+                                    <p class="text-danger" id="nameWarning"></p>
+                                 </div>
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                 <div class="w-50 mr-4">
+                                    <label for="type">Loại</label>
+                                    <select class="form-control" id="type">
+                                       <option>Chọn loại</option>
+                                       <option>Iphone</option>
+                                       <option>Samsung</option>
+                                    </select>
+                                    <p class="text-danger" id="typeWarning"></p>
+                                 </div>
+                                 <div class="form-group w-50">
+                                    <label for="screen">Màn hình</label>
+                                    <input type="text" class="form-control" id="screen" placeholder="Màn hình" />
+                                    <p class="text-danger" id="screenWarning"></p>
+
+                                 </div>
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                 <div class="form-group w-50 mr-4">
+                                    <label for="backCamera">Camera sau</label>
+                                    <input type="text" class="form-control" id="backCamera" placeholder="Camera sau" />
+                                    <p class="text-danger" id="bcWarning"></p>
+                                 </div>
+                                 <div class="form-group w-50">
+                                    <label for="frontCamera">Camera trước</label>
+                                    <input type="text" class="form-control" id="frontCamera"
+                                       placeholder="Camera trước" />
+                                    <p class="text-danger" id="fcWarning"></p>
+                                 </div>
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                 <div class="form-group w-50 mr-4">
+                                    <label for="price">Giá</label>
+                                    <input type="number" class="form-control" id="price" placeholder="Giá" />
+                                    <p class="text-danger" id="priceWarning"></p>
+                                 </div>
+                                 <div class="form-group w-50">
+                                    <label for="img">Hình ảnh</label>
+                                    <input type="text" class="form-control" id="img" placeholder="Hình ảnh" />
+                                    <p class="text-danger" id="imgWarning"></p>
+                                 </div>
+                              </div>
+                              <div class="form-group">
+                                 <label for="desc">Mô tả</label>
+                                 <textarea class="form-control" id="desc" rows="5" placeholder="Mô tả"></textarea>
+                                 <p class="text-danger" id="descWarning"></p>
+                              </div>
+                           </form>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                              Thoát
+                           </button>
+                           <button type="button" onclick="addProduct()" id="add" class="btn btn-primary">
+                              Thêm
+                           </button>
+                           <button type="button" onclick="" id="update" class="btn btn-primary">
+                              Cập nhật
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <table class="table table-striped">
+               <thead>
+                  <tr>
+                     <th scope="col">STT</th>
+                     <th scope="col">Tên Sản phẩm</th>
+                     <th scope="col">Loại</th>
+                     <th scope="col">Giá</th>
+                     <th scope="col">Hình ảnh</th>
+                     <th scope="col">Mô tả</th>
+                     <th scope="col">Công cụ</th>
+                  </tr>
+               </thead>
+               <tbody id="tbodyProduct"></tbody>
+            </table>
+         </div>
+         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            Chức năng đang cập nhật
+         </div>
+         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            Chức năng đang cập nhật
+         </div>
+      </div>
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+   <script type="module" src="../controllers/main.js"></script>
+</body>
+
+</html>
